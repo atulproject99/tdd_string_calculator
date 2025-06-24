@@ -1,3 +1,4 @@
 int add(String numbers) {
-  return 0;
+  if (numbers.isEmpty) return 0;
+  return int.parse(numbers);
 }
