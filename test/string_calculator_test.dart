@@ -10,5 +10,9 @@ void main() {
     test("return the number if one no is given", () {
       expect(add('3'), 3);
     });
+
+    test('return the sum of two no if two no is given', () {
+      expect(add('3,5'), 8);
+    });
   });
 }
