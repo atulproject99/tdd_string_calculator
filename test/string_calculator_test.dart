@@ -61,5 +61,12 @@ void main() {
         );
       },
     );
+
+    test(
+      'Numbers bigger than 1000 should be ignored so adding 2 + 1001 = 2',
+      () {
+        expect(add('2,1002,5'), 7);
+      },
+    );
   });
 }
