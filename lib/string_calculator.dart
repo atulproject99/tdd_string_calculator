@@ -10,9 +10,9 @@ int add(String numbers) {
   final inputs =
       numbers.split(RegExp(delimiterPattern)).map((e) => int.parse(e)).toList();
 
-  final negativeNoList = inputs.map((e) => e < 0).toList();
+  final negativeNoList = inputs.where((e) => e < 0).map((e) => e).toList();
   if (negativeNoList.isNotEmpty) {
-    throw FormatException('negative not allowed ${negativeNoList.first}');
+    throw FormatException('negative not allowed ${negativeNoList[0]}');
   }
 
   return inputs.reduce((a, b) => a + b);

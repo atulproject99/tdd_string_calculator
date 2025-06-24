@@ -35,9 +35,12 @@ void main() {
       () {
         expect(
           () => add('1,-2,3'),
-          predicate(
-            (e) =>
-                e is FormatException && e.message == 'negative not allowed -2',
+          throwsA(
+            predicate(
+              (e) =>
+                  e is FormatException &&
+                  e.message == 'negative not allowed -2',
+            ),
           ),
         );
       },
