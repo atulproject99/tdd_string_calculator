@@ -14,5 +14,9 @@ void main() {
     test('return the sum of two no if two no is given', () {
       expect(add('3,5'), 8);
     });
+
+    test('return the sum of all digit ', () {
+      expect(add('3,5,1,2,3'), 14);
+    });
   });
 }
