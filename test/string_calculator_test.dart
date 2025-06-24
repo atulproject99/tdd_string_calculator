@@ -74,5 +74,10 @@ void main() {
     test("//[***]\n1***2***3” should return 6", () {
       expect(add('//[***]\n1***2***3'), 6);
     });
+
+    /// Allow multiple delimiters
+    test("“//[*][%]\n1*2%3” should return 6.", () {
+      expect(add('//[*][%]\n1*2%3'), 6);
+    });
   });
 }
