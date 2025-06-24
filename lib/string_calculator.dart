@@ -7,8 +7,13 @@ int add(String numbers) {
     delimiterPattern = RegExp.escape(customDelimiters);
     numbers = numbers.substring(newLineIndex + 1);
   }
-  return numbers
-      .split(RegExp(delimiterPattern))
-      .map((e) => int.parse(e))
-      .reduce((a, b) => a + b);
+  final inputs =
+      numbers.split(RegExp(delimiterPattern)).map((e) => int.parse(e)).toList();
+
+  final negativeNoList = inputs.map((e) => e < 0).toList();
+  if (negativeNoList.isNotEmpty) {
+    throw FormatException('negative not allowed ${negativeNoList.first}');
+  }
+
+  return inputs.reduce((a, b) => a + b);
 }
