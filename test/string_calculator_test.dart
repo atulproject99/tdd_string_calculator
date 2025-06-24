@@ -18,5 +18,9 @@ void main() {
     test('return the sum of all digit ', () {
       expect(add('3,5,1,2,3'), 14);
     });
+
+    test('return 6 if “1\n2,3”', () {
+      expect(add('1\n2,3'), 6);
+    });
   });
 }
