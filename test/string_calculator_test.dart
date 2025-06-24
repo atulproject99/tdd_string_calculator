@@ -6,5 +6,9 @@ void main() {
     test('return 0 if empty string', () {
       expect(add(''), 0);
     });
+
+    test("return the number if one no is given", () {
+      expect(add('3'), 4);
+    });
   });
 }
