@@ -27,5 +27,20 @@ void main() {
     test('return 6 if //;\n1;2', () {
       expect(add('//;\n1;2'), 3);
     });
+
+    /// Not allowed negative numbers
+
+    test(
+      'throws exception  `negative no not allowed ` if numbers contain negative no',
+      () {
+        expect(
+          () => add('1,-2,3'),
+          predicate(
+            (e) =>
+                e is FormatException && e.message == 'negative not allowed -2',
+          ),
+        );
+      },
+    );
   });
 }
