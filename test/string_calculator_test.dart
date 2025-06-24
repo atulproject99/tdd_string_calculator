@@ -22,5 +22,10 @@ void main() {
     test('return 6 if “1\n2,3”', () {
       expect(add('1\n2,3'), 6);
     });
+
+    /// Support custom delimiters
+    test('return 6 if //;\n1;2', () {
+      expect(add('//;\n1;2'), 3);
+    });
   });
 }
