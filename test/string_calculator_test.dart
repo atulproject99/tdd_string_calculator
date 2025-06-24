@@ -8,7 +8,7 @@ void main() {
     });
 
     test("return the number if one no is given", () {
-      expect(add('3'), 4);
+      expect(add('3'), 3);
     });
   });
 }
