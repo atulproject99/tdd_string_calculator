@@ -8,7 +8,11 @@ int add(String numbers) {
     numbers = numbers.substring(newLineIndex + 1);
   }
   final inputs =
-      numbers.split(RegExp(delimiterPattern)).map((e) => int.parse(e)).toList();
+      numbers
+          .split(RegExp(delimiterPattern))
+          .map((e) => int.parse(e))
+          .where((e) => e <= 1000)
+          .toList();
 
   final negativeNoList = inputs.where((e) => e < 0).map((e) => e).toList();
   if (negativeNoList.isNotEmpty) {
