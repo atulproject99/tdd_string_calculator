@@ -72,7 +72,7 @@ void main() {
     ///Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
 
     test("//[***]\n1***2***3” should return 6", () {
-      expect('//[***]\n1***2***3', 6);
+      expect(add('//[***]\n1***2***3'), 6);
     });
   });
 }

@@ -3,8 +3,16 @@ int add(String numbers) {
   String delimiterPattern = '[,\n]';
   if (numbers.startsWith('//')) {
     final newLineIndex = numbers.indexOf('\n');
-    final customDelimiters = numbers.substring(2, newLineIndex);
-    delimiterPattern = RegExp.escape(customDelimiters);
+    final customDelimiterSection = numbers.substring(2, newLineIndex);
+    if (customDelimiterSection.startsWith('[')) {
+      final matches = RegExp(r'\[(.*?)\]').allMatches(customDelimiterSection);
+      final escapedDelimiters =
+          matches.map((e) => RegExp.escape(e.group(1)!)).toList();
+      delimiterPattern = escapedDelimiters.join('|');
+    } else {
+      delimiterPattern = RegExp.escape(customDelimiterSection);
+    }
+
     numbers = numbers.substring(newLineIndex + 1);
   }
   final inputs =
