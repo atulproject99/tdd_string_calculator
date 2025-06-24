@@ -68,5 +68,11 @@ void main() {
         expect(add('2,1002,5'), 7);
       },
     );
+
+    ///Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
+
+    test("//[***]\n1***2***3” should return 6", () {
+      expect('//[***]\n1***2***3', 6);
+    });
   });
 }
