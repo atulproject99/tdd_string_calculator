@@ -12,7 +12,7 @@ int add(String numbers) {
 
   final negativeNoList = inputs.where((e) => e < 0).map((e) => e).toList();
   if (negativeNoList.isNotEmpty) {
-    throw FormatException('negative not allowed ${negativeNoList[0]}');
+    throw FormatException('negative not allowed ${negativeNoList.join(',')}');
   }
 
   return inputs.reduce((a, b) => a + b);
