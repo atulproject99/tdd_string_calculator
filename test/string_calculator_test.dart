@@ -45,5 +45,21 @@ void main() {
         );
       },
     );
+
+    test(
+      'throws exception  `negative no not allowed ` and return no by separated by commas if multiple  numbers provided',
+      () {
+        expect(
+          () => add('1,-2,3,-5'),
+          throwsA(
+            predicate(
+              (e) =>
+                  e is FormatException &&
+                  e.message == 'negative not allowed -2,-5',
+            ),
+          ),
+        );
+      },
+    );
   });
 }
